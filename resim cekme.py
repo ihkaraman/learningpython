@@ -47,7 +47,7 @@ def altsayfayiac(url):
     resimlinkleri.clear()
     for veri in veriler:
         link = str(veri.get("href"))
-        if (link.__contains__("pixhost.to/show")):
+        if (link.__contains__("pic.to/show")):
             resimlinkleri.append((link))
     return resimlinkleri
 
@@ -58,7 +58,7 @@ def resimbul(rawurl, sayfa, ustsayfa):
         tablo = sayfatara(url)
         for i in range(0, len(tablo)):
             kategori = str(tablo[i].find_all("p", {"class": "post-author"})[0].text)
-            if((kategori.__contains__("Clips")) or (kategori.__contains__("Movies"))):
+            if((kategori.__contains__("C")) or (kategori.__contains__("Movies"))):
                 resimler = altsayfayiac(tablo[i].find_all("a")[0].get("href"))
                 indirlink = resimlinkbul(resimler, tablo[i].find_all("a")[0].get("href"))
                 # print(tablo[i].find_all("a")[0].get("href"))
@@ -122,8 +122,8 @@ def reimsizleriyaz():
 rawurl = "https://www/page/{}/"
 dosya = "liste.xlsx"
 
-altsayfa = 400
-ustsayfa = 644
+altsayfa = 1
+ustsayfa = 5
 
 
 #excelyaz(rawurl, dosya, 2, ustsayfa)
